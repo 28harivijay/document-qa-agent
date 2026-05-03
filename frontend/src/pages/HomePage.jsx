@@ -24,7 +24,7 @@ export default function HomePage({ onUpload }) {
 
         try {
             // Send file to backend for processing
-            const response = await fetch("http://localhost:8002/upload", {
+            const response = await fetch("https://document-qa-agent-dq1u.onrender.com/upload", {
                 method: "POST",
                 body: formData
             })
