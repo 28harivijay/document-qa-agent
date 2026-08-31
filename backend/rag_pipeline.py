@@ -108,7 +108,7 @@ def answer_question(question, relevant_chunks):
 
     # Call Groq API with prompt
     response = client.chat.completions.create(
-        model="llama-3.1-8b-instant",
+        model="openai/gpt-oss-20b",
         messages=[{"role": "user", "content": prompt}]
     )
     
