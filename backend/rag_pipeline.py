@@ -8,7 +8,6 @@ from groq import Groq
 import os
 from dotenv import load_dotenv
 from langchain_core.documents import Document as LangchainDoc
-from langchain_huggingface import HuggingFaceEndpointEmbeddings
 
 # Load API keys from .env file
 load_dotenv()
@@ -57,9 +56,8 @@ def get_chunks(documents):
     return chunks
 
 def get_embeddings():
-    return HuggingFaceEndpointEmbeddings(
-        model="sentence-transformers/all-MiniLM-L6-v2",
-        huggingfacehub_api_token=os.getenv("HF_TOKEN")
+    return HuggingFaceEmbeddings(
+        model_name="sentence-transformers/all-MiniLM-L6-v2"
     )
 
 # ==================== Vector Store Management ====================
