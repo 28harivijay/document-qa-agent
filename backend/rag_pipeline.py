@@ -2,7 +2,7 @@
 
 from langchain_community.document_loaders import PyPDFLoader
 from langchain_text_splitters import RecursiveCharacterTextSplitter
-from langchain_huggingface import HuggingFaceEmbeddings 
+from langchain_community.embeddings import FastEmbedEmbeddings 
 from langchain_community.vectorstores import FAISS
 from groq import Groq
 import os
@@ -56,8 +56,8 @@ def get_chunks(documents):
     return chunks
 
 def get_embeddings():
-    return HuggingFaceEmbeddings(
-        model_name="sentence-transformers/all-MiniLM-L6-v2"
+    return FastEmbedEmbeddings(
+        model_name="BAAI/bge-small-en-v1.5"
     )
 
 # ==================== Vector Store Management ====================
