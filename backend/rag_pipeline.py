@@ -1,11 +1,12 @@
 # RAG Pipeline - Handles document loading, chunking, embeddings, and AI responses
 
+import os
+
 from langchain_community.document_loaders import PyPDFLoader
 from langchain_text_splitters import RecursiveCharacterTextSplitter
 from langchain_google_genai import GoogleGenerativeAIEmbeddings
 from langchain_community.vectorstores import FAISS
 from groq import Groq
-import os
 from dotenv import load_dotenv
 from langchain_core.documents import Document as LangchainDoc
 
