@@ -57,7 +57,8 @@ def get_chunks(documents):
 
 def get_embeddings():
     return FastEmbedEmbeddings(
-        model_name="BAAI/bge-small-en-v1.5"
+        model="models/text-embedding-004",
+        google_api_key=os.getenv("GEMINI_API_KEY"),
     )
 
 # ==================== Vector Store Management ====================
