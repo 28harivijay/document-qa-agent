@@ -2,7 +2,7 @@
 
 from langchain_community.document_loaders import PyPDFLoader
 from langchain_text_splitters import RecursiveCharacterTextSplitter
-from langchain_community.embeddings import FastEmbedEmbeddings 
+from langchain_google_genai import GoogleGenerativeAIEmbeddings
 from langchain_community.vectorstores import FAISS
 from groq import Groq
 import os
@@ -56,7 +56,7 @@ def get_chunks(documents):
     return chunks
 
 def get_embeddings():
-    return FastEmbedEmbeddings(
+    return GoogleGenerativeAIEmbeddings(
         model="models/text-embedding-004",
         google_api_key=os.getenv("GEMINI_API_KEY"),
     )
