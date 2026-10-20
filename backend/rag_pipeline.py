@@ -109,7 +109,16 @@ def answer_question(question, relevant_chunks):
     # Call Groq API with prompt
     response = client.chat.completions.create(
         model="openai/gpt-oss-20b",
-        messages=[{"role": "user", "content": prompt}]
+        messages=[
+            {"role": "system", "content": (
+                "You are DocuMind, a friendly document assistant. "
+                "Answer conversationally and concisely, like chatting with a person. "
+                "Use short paragraphs; bullets only when actually listing things. "
+                "If the retrieved context doesn't cover the question, say what you can "
+                "answer from the document and note what's missing."
+            )},
+            {"role": "user", "content": prompt}
+        ]
     )
     
     # Extract and return the answer text
